@@ -76,9 +76,3 @@ for i in range(3):
     print(media(melhores[i]))
     numero_geracoes *= 2
 
-
-
-
-#print(melhores)
-# melhor_besouro, melhor_pontuacao = algoritmo_genetico()
-# print('Melhor besouro: %s; Melhor pontuação: %d' % (melhor_besouro, melhor_pontuacao))
