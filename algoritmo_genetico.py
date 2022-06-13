@@ -8,7 +8,7 @@ import numpy as np
 from numpy.random import randint
 
 populacao = []
-numero_geracoes = 300
+numero_geracoes = 10000
 tamanho_populacao = 100
 fitness_populacao = []
 
