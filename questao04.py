@@ -1,9 +1,3 @@
-'''
-primeiro passo é criar uma população inicial de besouros
-poderíamos usar valores booleanos, strings ou valores inteiros
-para o nosso problema, irei utilizar valores inteiros de 0 a 255
-'''
-
 import numpy as np
 from numpy.random import randint
 
@@ -37,6 +31,8 @@ def crossover(p1, p2):
     c2 = [p2[0], p1[1], p1[2]]
     return [c1, c2]
 
+
+#Mutação em 1% do individuos aleatorios da população
 def mutacao(populacao):
     numero_mutacoes = int(tamanho_populacao * 0.01)
     besouros_mutados = []
@@ -44,7 +40,7 @@ def mutacao(populacao):
         index_mutacao = randint(0, tamanho_populacao)
         while(index_mutacao in besouros_mutados):
             index_mutacao = randint(0, tamanho_populacao)
-            
+
         besouros_mutados.append(index_mutacao)
         populacao[index_mutacao][1] += 50
         if(populacao[index_mutacao][1] > 255):
