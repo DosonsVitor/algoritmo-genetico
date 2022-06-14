@@ -23,13 +23,22 @@ def avaliacao_fitness_populacao(populacao):
         fitness_populacao.append(fitness_function(populacao[index], index)[1])
     return fitness_populacao
 
-def selecao(populacao, fitness_populacao, k=3):
-    # primeira seleção aleatória por torneio
-    selecao_ix = randint(0, len(populacao))
-    for ix in randint(0, len(populacao), k-1):
-        if fitness_populacao[ix] < fitness_populacao[selecao_ix]:
-            selecao_ix = ix
-    return populacao[selecao_ix]
+def selecao_roleta(populacao, fitness_populacao):
+    soma = sum(fitness_populacao)
+    proporcao = (fitness_populacao/soma) * 360
+
+    proporcao_ind = []
+    aux = 0
+    selecionado = 0
+    for i in range(tamanho_populacao):
+        aux += proporcao[i]
+        proporcao_ind.append(aux)
+    lance = np.random.sample() * 360
+    for i in range(tamanho_populacao):
+        if(proporcao_ind[i] > lance):
+            selecionado = populacao[i]
+            break;
+    return selecionado
 
 def crossover(p1, p2):
     c1, c2 = p1.copy(), p2.copy()
@@ -51,7 +60,7 @@ def algoritmo_genetico():
                 print(melhor_besouro, "É o melhor besouro, na posição %d, com pontuacao %d." % (melhor_posicao, melhor_pontuacao))
 
         # selecionar os melhores da população e realizar nova geração
-        selecionados = [selecao(populacao, fitness_populacao) for _ in range(tamanho_populacao)]
+        selecionados = [selecao_roleta(populacao, fitness_populacao) for _ in range(tamanho_populacao)]
 
         filhos = list()
 
@@ -64,5 +73,5 @@ def algoritmo_genetico():
     print(populacao)
     return [melhor_besouro, melhor_pontuacao]
 
-melhor_besouro, melhor_pontuacao = algoritmo_genetico()
-print('Melhor besouro: %s; Melhor pontuação: %d' % (melhor_besouro, melhor_pontuacao))
+melhor_besouro, melhor_pontuacao = aslgoritmo_genetico()
+print('Melhor besouro: %s; Melhor pontuação: %d' % (melhor_besouro, melhor_pontuacao))    
