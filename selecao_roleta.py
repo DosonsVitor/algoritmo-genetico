@@ -74,4 +74,4 @@ def algoritmo_genetico():
     return [melhor_besouro, melhor_pontuacao]
 
 melhor_besouro, melhor_pontuacao = aslgoritmo_genetico()
-print('Melhor besouro: %s; Melhor pontuação: %d' % (melhor_besouro, melhor_pontuacao))    
+print('Melhor besouro: %s; Melhor pontuação: %d' % (melhor_besouro, melhor_pontuacao))
