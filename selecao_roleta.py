@@ -1,9 +1,3 @@
-'''
-primeiro passo é criar uma população inicial de besouros
-poderíamos usar valores booleanos, strings ou valores inteiros
-para o nosso problema, irei utilizar valores inteiros de 0 a 255
-'''
-
 import numpy as np
 from numpy.random import randint
 
@@ -73,5 +67,5 @@ def algoritmo_genetico():
     print(populacao)
     return [melhor_besouro, melhor_pontuacao]
 
-melhor_besouro, melhor_pontuacao = aslgoritmo_genetico()
+melhor_besouro, melhor_pontuacao = algoritmo_genetico()
 print('Melhor besouro: %s; Melhor pontuação: %d' % (melhor_besouro, melhor_pontuacao))
